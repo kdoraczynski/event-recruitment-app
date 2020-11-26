@@ -12,7 +12,7 @@ type Props = {
 	onSubmit: (...args: any[]) => void
 }
 
-const initialValues = getDefault()
+const initialValues = getDefault();
 
 const EventForm = ({ onSubmit }: Props) => {
 	return (
@@ -23,22 +23,23 @@ const EventForm = ({ onSubmit }: Props) => {
 			<Formik
 				initialValues={initialValues}
 				validationSchema={eventSchema}
-				onSubmit={(values, { setSubmitting }) => {
-					setSubmitting(true)
-					onSubmit(values)
-					setSubmitting(false)
+				onSubmit={(values, { setSubmitting, resetForm }) => {
+					setSubmitting(true);
+					onSubmit(values);
+					resetForm();
+					setSubmitting(false);
 				}}
 			>
 				{
 					({
-						handleSubmit,
-						isSubmitting,
-						handleChange,
-						handleBlur,
-						touched,
-						errors,
-						values
-					}) => (
+						 handleSubmit,
+						 isSubmitting,
+						 handleChange,
+						 handleBlur,
+						 touched,
+						 errors,
+						 values
+					 }) => (
 						<Form
 							noValidate
 							onSubmit={handleSubmit}
@@ -47,6 +48,7 @@ const EventForm = ({ onSubmit }: Props) => {
 								as={Row}
 								controlId="firstName"
 								key="firstName"
+								className=''
 							>
 								<Form.Label
 									column
@@ -60,10 +62,13 @@ const EventForm = ({ onSubmit }: Props) => {
 										value={values.firstName}
 										onChange={handleChange}
 										onBlur={handleBlur}
-										isInvalid={!!errors.firstName}
+										isInvalid={touched.firstName && !!errors.firstName}
 									/>
-									<Form.Control.Feedback type={'invalid'}>
-										{ errors.firstName }
+									<Form.Control.Feedback
+										type='invalid'
+										className='text-left'
+									>
+										{errors.firstName}
 									</Form.Control.Feedback>
 								</Col>
 							</Form.Group>
@@ -84,10 +89,13 @@ const EventForm = ({ onSubmit }: Props) => {
 										value={values.lastName}
 										onChange={handleChange}
 										onBlur={handleBlur}
-										isInvalid={!!errors.lastName}
+										isInvalid={touched.lastName && !!errors.lastName}
 									/>
-									<Form.Control.Feedback type={'invalid'}>
-										{ errors.lastName }
+									<Form.Control.Feedback
+										type='invalid'
+										className='text-left'
+									>
+										{errors.lastName}
 									</Form.Control.Feedback>
 								</Col>
 							</Form.Group>
@@ -107,16 +115,19 @@ const EventForm = ({ onSubmit }: Props) => {
 										<InputGroup.Prepend>
 											<InputGroup.Text>@</InputGroup.Text>
 										</InputGroup.Prepend>
-									<Form.Control
-										name="email"
-										value={values.email}
-										onChange={handleChange}
-										onBlur={handleBlur}
-										isInvalid={!!errors.email}
-									/>
-									<Form.Control.Feedback type={'invalid'}>
-										{ errors.email }
-									</Form.Control.Feedback>
+										<Form.Control
+											name="email"
+											value={values.email}
+											onChange={handleChange}
+											onBlur={handleBlur}
+											isInvalid={touched.email && !!errors.email}
+										/>
+										<Form.Control.Feedback
+											type='invalid'
+											className='text-left'
+										>
+											{errors.email}
+										</Form.Control.Feedback>
 									</InputGroup>
 								</Col>
 							</Form.Group>
@@ -138,10 +149,13 @@ const EventForm = ({ onSubmit }: Props) => {
 										value={values.date}
 										onChange={handleChange}
 										onBlur={handleBlur}
-										isInvalid={!!errors.date}
+										isInvalid={touched.date && !!errors.date}
 									/>
-									<Form.Control.Feedback type={'invalid'}>
-										{ errors.date }
+									<Form.Control.Feedback
+										type='invalid'
+										className='text-left'
+									>
+										{errors.date}
 									</Form.Control.Feedback>
 								</Col>
 							</Form.Group>

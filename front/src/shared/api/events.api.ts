@@ -7,9 +7,9 @@ const endpoints = {
 }
 
 export const getDefault = (): EventModel => ({
-	firstName: '1',
-	lastName: '1',
-	email: '1@1.pl',
+	firstName: '',
+	lastName: '',
+	email: '',
 	date: '',
 })
 

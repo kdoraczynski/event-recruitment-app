@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/cjs/Col';
 import EventForm from './components/EventForm';
 import { EventModel } from './shared/api/eventModel';
 import { create } from './shared/api/events.api';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
 	const handleSubmit = async (data: EventModel) => {
@@ -33,6 +33,7 @@ function App() {
 							onSubmit={handleSubmit}
 						/>
 					</Col>
+					<ToastContainer/>
 				</Row>
 			</Container>
 		</div>
