@@ -1,9 +1,11 @@
-require('dotenv').config()
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const DEFAULT_APP_PORT: number = 8080
 const NODE_ENV = process.env.NODE_ENV || 'dev'
 
-const config: Record<string, any> = {
+const appConfig = {
   dev: {
     APP_PORT: process.env.APP_PORT || DEFAULT_APP_PORT
   },
@@ -12,4 +14,4 @@ const config: Record<string, any> = {
   }
 }
 
-module.exports = config[NODE_ENV]
+export default appConfig[NODE_ENV]

@@ -1,5 +1,5 @@
-import { Router } from 'express'
 import type { RequestHandler } from 'express'
+import { Router } from 'express'
 import { EventModel } from '../models/event.model'
 import { createEventValidator } from '../validations/events'
 // import { StatusCodes } from 'http-status-codes/build/es'

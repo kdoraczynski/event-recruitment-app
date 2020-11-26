@@ -7,25 +7,31 @@
 cd server
 yarn install
 ```
-####Frontend
+
+####Client
 ```bash
-cd front
+cd client
 yarn install
 ```
+
 #Run in development mode
+
 ####Server
 ```bash
 cd server
 yarn docker:start #set valid REACT_API_URL - localhost
 yarn start:dev
 ```
-####Frontend
+
+####Client
 ```bash
-cd front
+cd client
 cp .env.example .env
 yarn start
 ```
+
 ##Run in production mode
+
 ####Server
 ```bash
 cd server
@@ -34,14 +40,18 @@ yarn docker:start
 Run src/server.ts
 ```
 ####Frontend
+
 ```bash
-cd front
+cd client
 cp .env.example .env #set valid REACT_API_URL - server url
 yarn build
 #serve build files
 ```
+
 ##Tests
+
 ####Server
+
 ```bash
 cd server
 yarn docker:start
@@ -49,7 +59,8 @@ yarn test
 ```
 
 ####Frontend
+
 ```bash
-cd front
+cd client
 yarn test
 ```

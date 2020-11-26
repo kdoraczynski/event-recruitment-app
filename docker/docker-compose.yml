@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  db:
+    image: mvertes/alpine-mongo
+    container_name: event-form-app-db
+    restart: unless-stopped
+    volumes:
+    - dbdata:/data/event-form-app-db
+    ports:
+    - "28017:27017"
+volumes:
+  dbdata:

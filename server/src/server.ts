@@ -1,4 +1,4 @@
 import app from './app'
-const { APP_PORT } = require('./config/env')
+import appConfig from './config/app'
 
-app.listen(APP_PORT)
+app.listen(appConfig.APP_PORT)
