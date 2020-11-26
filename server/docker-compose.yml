@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  db:
+    image: mvertes/alpine-mongo
+    container_name: db
+    restart: unless-stopped
+    volumes:
+    - dbdata:/data/db
+    ports:
+    - "28017:27017"
+volumes:
+  dbdata:
+#  nodejs:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    image: event-form-app
+#    container_name: event-form-app
+#    restart: unless-stopped
+#    ports:
+#    - "8080"
+#    volumes:
+#    - .:/home/node/app
+#    - node_modules:/home

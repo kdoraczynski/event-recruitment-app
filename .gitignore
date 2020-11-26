@@ -1,0 +1,5 @@
+node_modules/
+/front/build
+*/.env
+*/yarn-error.log
+.idea
