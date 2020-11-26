@@ -1,9 +1,9 @@
 import type { RequestHandler } from 'express'
 import { Router } from 'express'
+import { StatusCodes } from 'http-status-codes/build/cjs'
+
 import { EventModel } from '../models/event.model'
 import { createEventValidator } from '../validations/events'
-// import { StatusCodes } from 'http-status-codes/build/es'
-const { StatusCodes } = require('http-status-codes')
 
 const eventRouter = Router()
 

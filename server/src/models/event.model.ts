@@ -17,4 +17,6 @@ export const EventModel = model('EventModel', new Schema({
     type: Date,
     required: [true, 'Date is required']
   }
+}, {
+  timestamps: true
 }))
