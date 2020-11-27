@@ -11,6 +11,6 @@ const eventSchema = object({
 		.required(DEFAULT_REQUIRED_ERROR_MESSAGE),
 	date: date()
 		.required(DEFAULT_REQUIRED_ERROR_MESSAGE)
-})
+});
 
-export default eventSchema
+export default eventSchema;

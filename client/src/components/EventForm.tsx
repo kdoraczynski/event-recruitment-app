@@ -1,34 +1,38 @@
-import React from 'react';
-import Card from 'react-bootstrap/cjs/Card';
-import { Form, InputGroup } from 'react-bootstrap';
-import Row from 'react-bootstrap/Row';
+import React, { useCallback } from 'react';
 import { Formik } from 'formik';
+import { Form, InputGroup, Row, Col, Card } from 'react-bootstrap';
 import eventSchema from './event.schema';
-import { getDefault } from '../shared/api/events.api';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
+import { EventModel } from '../shared/api/eventModel';
+import ProgressButton from './ProgressButton';
 
-type Props = {
-	onSubmit: (...args: any[]) => void
+type EventFormProps = {
+	onSubmit: (eventData: EventModel) => Promise<EventModel>
 }
 
-const initialValues = getDefault();
+export const getEventFormInitialValues = (): EventModel => ({
+	firstName: '',
+	lastName: '',
+	email: '',
+	date: '',
+});
 
-const EventForm = ({ onSubmit }: Props) => {
+const EventForm = ({ onSubmit }: EventFormProps) => {
+	const handleSubmit = useCallback(async (formData, { setSubmitting, resetForm }) => {
+		setSubmitting(true);
+		await onSubmit(formData);
+		resetForm();
+		setSubmitting(false);
+	}, [ onSubmit ]);
+
 	return (
 		<Card
 			className="mt-3"
 			body
 		>
 			<Formik
-				initialValues={initialValues}
+				initialValues={getEventFormInitialValues()}
 				validationSchema={eventSchema}
-				onSubmit={(values, { setSubmitting, resetForm }) => {
-					setSubmitting(true);
-					onSubmit(values);
-					resetForm();
-					setSubmitting(false);
-				}}
+				onSubmit={handleSubmit}
 			>
 				{
 					({
@@ -159,11 +163,12 @@ const EventForm = ({ onSubmit }: Props) => {
 									</Form.Control.Feedback>
 								</Col>
 							</Form.Group>
-							<Button
-								type="submit"
+							<ProgressButton
+								type='submit'
+								isLoading={isSubmitting}
 							>
 								Sign up
-							</Button>
+							</ProgressButton>
 						</Form>
 					)
 				}

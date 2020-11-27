@@ -66,11 +66,9 @@ yarn test
 ```
 
 ## Additional information
-I decided not to use any state management library because I didn't really find an appropriate use case for it.
+I didn't really find an appropriate use case for state management library, so I decided to implement a simple created events counter.
 
 ### TODO
  
 #### Server
 - Move app to docker
-
-#### Client

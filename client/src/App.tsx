@@ -1,25 +1,30 @@
-import React from 'react';
-import './App.css';
-import Container from 'react-bootstrap/cjs/Container';
-import Row from 'react-bootstrap/cjs/Row';
-import Col from 'react-bootstrap/cjs/Col';
+import React, { useCallback, useContext } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import { observer } from 'mobx-react-lite';
+
 import EventForm from './components/EventForm';
 import { EventModel } from './shared/api/eventModel';
 import { create } from './shared/api/events.api';
-import { ToastContainer, toast } from 'react-toastify';
+import { EventsStoreContext } from './shared/store';
+import type EventsStore from './shared/store/events.store';
+
+import './App.css';
 
 function App() {
-	const handleSubmit = async (data: EventModel) => {
-		return await create(data)
-			.then((createdEvent: EventModel) => {
-				toast.success('Saved!')
-				return createdEvent
-			})
-			.catch((error) => {
-				toast.error('An error occurred')
-				throw error
-			})
-	};
+	const eventsStore = useContext<EventsStore>(EventsStoreContext);
+
+	const handleEventCreate = useCallback(async (data: EventModel): Promise<Required<EventModel>> => {
+		try {
+			const createdEvent = await create(data);
+			eventsStore.incrementCreatedEventsCount();
+			toast.success('Signed up');
+			return createdEvent;
+		} catch (error) {
+			toast.error('An error occurred');
+			throw error;
+		}
+	}, [ eventsStore ]);
 
 	return (
 		<div className="App">
@@ -30,8 +35,14 @@ function App() {
 						md={{ span: 6, offset: 3 }}
 					>
 						<EventForm
-							onSubmit={handleSubmit}
+							onSubmit={handleEventCreate}
 						/>
+					</Col>
+					<Col
+						sm="12"
+						md={{ span: 6, offset: 3 }}
+					>
+						Created events count: {eventsStore.createdEventsCount}
 					</Col>
 					<ToastContainer/>
 				</Row>
@@ -40,4 +51,4 @@ function App() {
 	);
 }
 
-export default App;
+export default observer(App);
