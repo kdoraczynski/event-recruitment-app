@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventForm Renders correctly 1`] = `
+<div
+  className="mt-3 card"
+>
+  <div
+    className="card-body"
+  >
+    <form
+      className=""
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group row"
+      >
+        <label
+          className="form-label col-form-label col-sm-3"
+          htmlFor="firstName"
+        >
+          First name
+        </label>
+        <div
+          className="col-sm-9"
+        >
+          <input
+            className="form-control"
+            id="firstName"
+            name="firstName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            value=""
+          />
+          <div
+            className="text-left invalid-feedback"
+          />
+        </div>
+      </div>
+      <div
+        className="form-group row"
+      >
+        <label
+          className="form-label col-form-label col-sm-3"
+          htmlFor="lastName"
+        >
+          Last name
+        </label>
+        <div
+          className="col-sm-9"
+        >
+          <input
+            className="form-control"
+            id="lastName"
+            name="lastName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            value=""
+          />
+          <div
+            className="text-left invalid-feedback"
+          />
+        </div>
+      </div>
+      <div
+        className="form-group row"
+      >
+        <label
+          className="form-label col-form-label col-sm-3"
+          htmlFor="email"
+        >
+          Email address
+        </label>
+        <div
+          className="col-sm-9"
+        >
+          <div
+            className="input-group"
+          >
+            <div
+              className="input-group-prepend"
+            >
+              <span
+                className="input-group-text"
+              >
+                @
+              </span>
+            </div>
+            <input
+              className="form-control"
+              id="email"
+              name="email"
+              onBlur={[Function]}
+              onChange={[Function]}
+              value=""
+            />
+            <div
+              className="text-left invalid-feedback"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="form-group row"
+      >
+        <label
+          className="form-label col-form-label col-sm-3"
+          htmlFor="date"
+        >
+          Event date
+        </label>
+        <div
+          className="col-sm-9"
+        >
+          <input
+            className="form-control"
+            id="date"
+            name="date"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="date"
+            value=""
+          />
+          <div
+            className="text-left invalid-feedback"
+          />
+        </div>
+      </div>
+      <button
+        className="btn btn-primary"
+        disabled={false}
+        type="submit"
+      >
+        Sign up
+      </button>
+    </form>
+  </div>
+</div>
+`;
