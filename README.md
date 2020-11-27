@@ -14,11 +14,12 @@ cd client
 yarn install
 ```
 
-# Run in development mode
+## Run in development mode
 
 #### Server
 ```bash
 cd server
+cp .env.example .env
 yarn docker:start 
 yarn start:dev
 ```

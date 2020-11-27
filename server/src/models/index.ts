@@ -7,8 +7,13 @@ const options: ConnectionOptions = {
   connectTimeoutMS: 200
 }
 
-export default connect(dbConfig.MONGO_URL, options)
+const connectToMongo = () => connect(dbConfig.MONGO_URL, options)
+  .then(() => {
+    console.log('Successfully connected to mongo')
+  })
   .catch((error: Error) => {
     console.log('Database connection failed')
     throw error
   })
+
+export default connectToMongo

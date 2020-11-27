@@ -5,9 +5,6 @@ import cors from 'cors'
 
 import eventRouter from './routes/events.route'
 
-import index from './models'
-console.log(index)
-
 const app = express()
 
 app.use(cors())
