@@ -1,45 +1,44 @@
 # event-recruitment-app
 
-##Installation
+## Installation
 
-####Server
+#### Server
 ```bash
 cd server
 yarn install
 ```
 
-####Client
+#### Client
 ```bash
 cd client
 yarn install
 ```
 
-#Run in development mode
+# Run in development mode
 
-####Server
+#### Server
 ```bash
 cd server
-yarn docker:start #set valid REACT_API_URL - localhost
+yarn docker:start 
 yarn start:dev
 ```
 
-####Client
+#### Client
 ```bash
 cd client
 cp .env.example .env
 yarn start
 ```
 
-##Run in production mode
+## Run in production mode
 
-####Server
+#### Server
 ```bash
 cd server
 cp .env.example .env #set NODE_ENV to production
-yarn docker:start
 Run src/server.ts
 ```
-####Frontend
+#### Client
 
 ```bash
 cd client
@@ -48,9 +47,9 @@ yarn build
 #serve build files
 ```
 
-##Tests
+## Tests
 
-####Server
+#### Server
 
 ```bash
 cd server
@@ -58,9 +57,19 @@ yarn docker:start
 yarn test
 ```
 
-####Frontend
+#### Client
 
 ```bash
 cd client
 yarn test
 ```
+
+## Additional information
+I decided not to use any state management library because I didn't really find an appropriate use case for it.
+
+### TODO
+ 
+#### Server
+- Move app to docker
+
+#### Client

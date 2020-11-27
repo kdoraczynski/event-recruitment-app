@@ -1,6 +1,9 @@
 export type EventModel = {
+	_id?: string
 	firstName: string
 	lastName: string
 	email: string
-	date: Date | any
+	date: string
+	createdAt?: string
+	updatedAt?: string
 }

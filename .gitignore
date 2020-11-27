@@ -1,5 +1,6 @@
 node_modules/
-/front/build
 */.env
 */yarn-error.log
+*/.eslintcache
 .idea
+/client/build

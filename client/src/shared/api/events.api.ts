@@ -13,10 +13,10 @@ export const getDefault = (): EventModel => ({
 	date: '',
 })
 
-export const getAll = async (): Promise<EventModel[]> =>
+export const getAll = async (): Promise<Required<EventModel[]>> =>
 	httpClient.get(endpoints.main)
 		.then(prop('data'))
 
-export const create = async (event: EventModel): Promise<EventModel> =>
+export const create = async (event: EventModel): Promise<Required<EventModel>> =>
 	httpClient.post(endpoints.main, event)
 		.then(prop('data'))
