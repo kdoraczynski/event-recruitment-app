@@ -2,6 +2,7 @@ import request from 'supertest'
 import app from '../../app'
 import { StatusCodes } from 'http-status-codes/build/cjs'
 import { connection } from 'mongoose'
+import connectToMongo from '../../models'
 
 const exemplaryEventData = {
   firstName: 'Jan',
@@ -11,12 +12,16 @@ const exemplaryEventData = {
 }
 
 describe('/events', () => {
+  beforeAll(() => {
+    connectToMongo()
+  })
+
   it('Should return an array', async () => {
     const res = await request(app)
       .get('/api/events')
 
     expect(res.status).toBe(StatusCodes.OK)
-    expect(Array.isArray(res.body)).toBe(true)
+    expect(res.body).toBeInstanceOf(Array)
   })
 
   it('Should create new event and then return it', async () => {

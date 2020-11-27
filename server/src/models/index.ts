@@ -12,7 +12,7 @@ const connectToMongo = () => connect(dbConfig.MONGO_URL, options)
     console.log('Successfully connected to mongo')
   })
   .catch((error: Error) => {
-    console.log('Database connection failed')
+    console.error('Database connection failed')
     throw error
   })
 
