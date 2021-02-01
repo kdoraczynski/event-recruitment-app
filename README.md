@@ -64,11 +64,3 @@ yarn test
 cd client
 yarn test
 ```
-
-## Additional information
-I didn't really find an appropriate use case for state management library, so I decided to implement a simple created events counter.
-
-### TODO
- 
-#### Server
-- Move app to docker
