@@ -1,4 +1,4 @@
-# event-recruitment-app
+# events-app
 
 ## Installation
 
